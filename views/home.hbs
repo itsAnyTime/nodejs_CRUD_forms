@@ -4,50 +4,58 @@
 <h1>{{title}}</h1>
 
 {{#each myArray}}
-    {{this}}
+{{this}}
 {{/each}}
 
-
+{{!-- syntax -- }}
 {{!-- {{#if visible}}
-    do something
+do something
 {{/if}} --}}
 
-
-
-<form action="/page/submit" method="post">
+{{!-- form: User input will be an ID  --}}
+<form action="/home" method="post">
     <input type="text" name="id">
     <button type="submit">Submit</button>
 </form>
 
 <hr>
 
+{{!-- Blue Boxes: input fields --}}
 <section class="insert">
-    <h3>Insert Data</h3>    
+    <h3>Insert Data</h3>
     <form action="/insert" method="post">
-    <div class="input">
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title">
-    </div>
+        <div class="input">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+        </div>
 
-    <div class="input">
-        <label for="title">Content</label>
-        <input type="text" id="content" name="content">
-    </div>
-    
-    <div class="input">
-        <label for="title">Author</label>
-        <input type="text" id="author" name="author">
-    </div>
-    <button type="submit">INSERT</button>
+        <div class="input">
+            <label for="title">Content</label>
+            <input type="text" id="content" name="content">
+        </div>
+
+        <div class="input">
+            <label for="title">Author</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <button type="submit">INSERT</button>
 
     </form>
 </section>
 
+{{!-- Blue Boxes: GET DATA --}}
 <section class="get">
     <h3>Get DATA</h3>
-    <a href="/get-data">GET DATA</a>
+    <a href="/get-data">Show Data</a>
 
     <div>
-        
+        {{#each items }}
+        <article class="item">
+            <div>Title: {{ this.title }} </div>
+            <div>Content: {{ this.content }}</div>
+            <div>Author: {{ this.author }}</div>
+            <div>ID: {{ this._id }}</div>
+        </article>
+        {{/each}}
     </div>
 </section>

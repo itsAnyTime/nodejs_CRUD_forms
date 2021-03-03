@@ -1,3 +1,5 @@
+// goto: http://localhost:3000/ and try the forms
+
 const express = require("express");
 const path = require("path");
 
